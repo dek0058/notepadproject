@@ -2,6 +2,7 @@
 #include <vector>
 #include "quicksort.h"
 #include "mergesort.h"
+#include "heapsort.h"
 
 int main() {
     
@@ -12,7 +13,7 @@ int main() {
     }
     std::cout << std::endl;
 
-    sort::MergeSort<int>(arr, std::greater());
+    sort::MinHeapSort<int>(arr);
     std::cout << "Sorted array: ";
     for (const auto &num : arr) {
         std::cout << num << " ";

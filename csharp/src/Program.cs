@@ -12,7 +12,8 @@ foreach (var val in arr)
 Console.WriteLine();
 
 //QuickSort<int>.Execute(arr, (x, y) => x > y);
-MergeSort<int>.Execute(arr, (x, y) => x > y);
+//MergeSort<int>.Execute(arr, (x, y) => x > y);
+MinHeapSort<int>.Execute(arr);
 
 Console.WriteLine("After Sorting:");
 foreach (var val in arr)

@@ -113,3 +113,41 @@ func TestMergeSort(t *testing.T) {
 			})
 	}
 }
+
+func TestHeapSort(t *testing.T) {
+	testCases := []struct {
+		name     string
+		input    []int
+		expected []int
+		max      bool
+	}{
+		{
+			name:     "내림차순 정렬",
+			input:    []int{5, 3, 7, 8, 2, 1, 9},
+			expected: []int{9, 8, 7, 5, 3, 2, 1},
+			max:      false,
+		},
+		{
+			name:     "오름차순 정렬",
+			input:    []int{5, 3, 7, 8, 2, 1, 9},
+			expected: []int{1, 2, 3, 5, 7, 8, 9},
+			max:      true,
+		},
+	}
+
+	for _, tc := range testCases {
+		t.Run(
+			tc.name, func(t *testing.T) {
+				arrToSort := make([]int, len(tc.input))
+				copy(arrToSort, tc.input)
+				if tc.max {
+					sort.MaxHeapSort(arrToSort)
+				} else {
+					sort.MinHeapSort(arrToSort)
+				}
+				if !reflect.DeepEqual(arrToSort, tc.expected) {
+					t.Errorf("QuickSort() = %v, want %v", arrToSort, tc.expected)
+				}
+			})
+	}
+}

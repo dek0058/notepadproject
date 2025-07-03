@@ -11,3 +11,4 @@ cpp/output/*
 csharp/output/*
 !csharp/output/.gitkeep
 csharp/obj/
+notepadproject.sln
