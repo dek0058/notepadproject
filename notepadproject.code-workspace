@@ -1,0 +1,152 @@
+{
+    "folders": [
+        {
+            "path": "./",
+            "name": "Notepad Project",
+        },
+    ],
+    "tasks": {
+        "version": "2.0.0",
+        "tasks": [
+            // C++
+            {
+                "label": "c++ debug build",
+                "type": "shell",
+                "command": "clang++",
+                "args": [
+                    "${workspaceFolder}/cpp/src/*.cpp",
+                    "-o",
+                    "${workspaceFolder}/cpp/output/cppProject.exe",
+                    "-g",
+                    "-Wall",
+                    "-std=c++20",
+                    "-I",
+                    "${workspaceFolder}/cpp",
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+                "detail": "Clang 컴파일러를 사용하여 활성화 된 C++ 파일을 디버그 빌드 합니다."
+            },
+
+            // C#
+            {
+                "label": "c# debug build",
+                "type": "process",
+                "command": "dotnet",
+                "args": [
+                    "build",
+                    "${workspaceFolder}/csharp/csharp.csproj",
+                    "/property:GenerateFullPaths=true",
+                    "/consoleloggerparameters:NoSummary",
+                ],
+                "problemMatcher": "$msCompile",
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                },
+            }
+        ],
+    },
+    "launch": {
+        "version": "0.2.0",
+        "configurations": [
+            // C++
+            {
+                "name": "C/C++: clang++",
+                "type": "lldb",
+                "request": "launch",
+                "program": "${workspaceFolder}/cpp/output/cppProject.exe",
+                "args": [],
+                "cwd": "${workspaceFolder}/cpp/output",
+                "preLaunchTask": "c++ debug build"
+            },
+
+            // C#
+            {
+                "name": "C#: .NET Core",
+                "type": "coreclr",
+                "request": "launch",
+                "program": "${workspaceFolder}/csharp/output/csharpProject.exe",
+                "args": [],
+                "cwd": "${workspaceFolder}/csharp/output",
+                "console": "integratedTerminal",
+                "stopAtEntry": false,
+                "justMyCode": true,
+                "preLaunchTask": "c# debug build"
+            },
+
+            // GO
+            {
+                "name": "Go: run",
+                "type": "go",
+                "request": "launch",
+                "mode": "auto",
+                "console": "integratedTerminal",
+                "program": "${workspaceFolder}/go/src",
+                "output": "${workspaceFolder}/go/output/goProject.exe",
+                "env": {},
+                "args": [],
+            },
+        ],
+        "compounds": []
+    },
+    "settings": {
+        "files.associations": {
+            "iostream": "cpp",
+            "vector": "cpp",
+            "type_traits": "cpp",
+            "xtr1common": "cpp",
+            "atomic": "cpp",
+            "bit": "cpp",
+            "cctype": "cpp",
+            "clocale": "cpp",
+            "cmath": "cpp",
+            "compare": "cpp",
+            "concepts": "cpp",
+            "cstddef": "cpp",
+            "cstdint": "cpp",
+            "cstdio": "cpp",
+            "cstdlib": "cpp",
+            "cstring": "cpp",
+            "ctime": "cpp",
+            "cwchar": "cpp",
+            "exception": "cpp",
+            "functional": "cpp",
+            "initializer_list": "cpp",
+            "ios": "cpp",
+            "iosfwd": "cpp",
+            "istream": "cpp",
+            "iterator": "cpp",
+            "limits": "cpp",
+            "list": "cpp",
+            "memory": "cpp",
+            "new": "cpp",
+            "ostream": "cpp",
+            "stdexcept": "cpp",
+            "streambuf": "cpp",
+            "system_error": "cpp",
+            "tuple": "cpp",
+            "typeinfo": "cpp",
+            "unordered_map": "cpp",
+            "utility": "cpp",
+            "xfacet": "cpp",
+            "xhash": "cpp",
+            "xiosbase": "cpp",
+            "xlocale": "cpp",
+            "xlocinfo": "cpp",
+            "xlocnum": "cpp",
+            "xmemory": "cpp",
+            "xstddef": "cpp",
+            "xstring": "cpp",
+            "xutility": "cpp"
+        }
+    }
+}

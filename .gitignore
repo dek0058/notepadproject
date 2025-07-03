@@ -1,0 +1,13 @@
+
+# Cache folders
+.vs/
+.vscode/
+
+# C++
+cpp/output/*
+!cpp/output/.gitkeep
+
+# C#
+csharp/output/*
+!csharp/output/.gitkeep
+csharp/obj/
